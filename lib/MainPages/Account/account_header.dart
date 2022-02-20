@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:openshop/Decorations/text_deco.dart';
+import 'package:openshop/MainPages/Account/settings.dart';
 
 Widget accountHeader(BuildContext context) {
   final width = MediaQuery.of(context).size.width;
@@ -12,7 +13,7 @@ Widget accountHeader(BuildContext context) {
     snap: false,
     leading: Container(),
     backgroundColor: Colors.transparent,
-    expandedHeight: ScreenUtil().setHeight(400),
+    expandedHeight: ScreenUtil().setHeight(650),
     excludeHeaderSemantics: true,
 
     flexibleSpace: FlexibleSpaceBar(
@@ -21,13 +22,9 @@ Widget accountHeader(BuildContext context) {
         child: Container(
           height: ScreenUtil().setHeight(300),
           width: width,
-          // margin: EdgeInsets.only(
-          //   left: ScreenUtil().setWidth(5),
-          //   right: ScreenUtil().setWidth(5),
-          // ),
           decoration:BoxDecoration(
             image: const DecorationImage(
-              image: AssetImage("assets/img6.jpeg"),
+              image: AssetImage("assets/img3.jpeg"),
               fit: BoxFit.cover
             ),
             borderRadius: BorderRadius.all(
@@ -42,7 +39,7 @@ Widget accountHeader(BuildContext context) {
                   left: 0,
                   right: 0,
                   child: Container(
-                    color: Colors.black87.withOpacity(0.4),
+                    color: Colors.black87.withOpacity(0.5),
                   ),
               ),
             Positioned(
@@ -50,7 +47,8 @@ Widget accountHeader(BuildContext context) {
                 right: 0,
                 child: IconButton(
                   icon: const Icon(Icons.settings_rounded),
-                  onPressed: () {  },)),
+                  onPressed: ()=>Navigator.push(context,
+                      MaterialPageRoute(builder: (context)=>const Settings())),)),
 
             Positioned(
               left: 10,
@@ -64,13 +62,14 @@ Widget accountHeader(BuildContext context) {
               ),
             ),
             Positioned(
-              top: 10,
+              top: 0,
               bottom: 0,
               left: ScreenUtil().setWidth(360),
               width: width-ScreenUtil().setWidth(365),
               child: SizedBox(
                 height: ScreenUtil().setHeight(300),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                 Text("Username : Elpipo", style: style,),

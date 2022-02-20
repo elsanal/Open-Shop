@@ -4,7 +4,12 @@ import 'package:openshop/Components/BottomNavBar/bottom_navigation_bar.dart';
 import 'package:openshop/Components/MenuBar/menu_bar.dart';
 import 'package:openshop/Components/MenuBar/menu_items.dart';
 import 'package:openshop/Components/MenuBar/search.dart';
-import 'package:openshop/MainPages/Home/body.dart';
+import 'package:openshop/MainPages/Account/account.dart';
+import 'package:openshop/MainPages/Cart/cart.dart';
+import 'package:openshop/MainPages/Chat/chat.dart';
+import 'package:openshop/Components/body.dart';
+import 'package:openshop/MainPages/Home/homebody.dart';
+import 'package:openshop/MainPages/Trend/trending.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -17,35 +22,25 @@ class _HomepageState extends State<Homepage> {
 
   int bottomIndex = 0;
   int menuIndex = 0;
-  String menuItem = "All";
-  final menuItems = ["All","Electronics","Clothes","Shoes","Foods",
-                "Electronics","Clothes","Shoes","Foods"];
   final bottomIcons = [Icons.home,Icons.shopping_cart,
                       Icons.trending_up,Icons.chat,
                       Icons.account_circle] ;
   final bottomLabels = ["Home","Panier","Trend","Message","Moi"];
-
+  List<Widget> pages = [const Homebody(),const Cart(),const Trending(),
+                        const Chat(),const Account()];
 
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Container(
-      color: Colors.white,
+      color: Colors.black87,
       child: SafeArea(
         child: Scaffold(
           body: SizedBox(
             height: height,
             width: width,
-            child: Stack(children: [
-              Positioned(
-                  top: 0,
-                  child: menuBar(context, menu())),
-              Positioned(
-                top: 100,
-                  bottom: 2,
-                  child: mainBody(context, bottomIndex, menuItem)),
-            ],),
+            child: pages[bottomIndex],
           ),
           bottomNavigationBar: bottomNavBar(),
         ),
@@ -104,39 +99,6 @@ class _HomepageState extends State<Homepage> {
       ],),
     );
   }
-
-  Widget menu(){
-    final width = MediaQuery.of(context).size.width;
-    return Container(
-      // color: Colors.green,
-      height: ScreenUtil().setHeight(90),
-      width: width,
-      padding: EdgeInsets.only(
-          left: ScreenUtil().setHeight(20),
-          right: ScreenUtil().setHeight(20)
-      ),
-      child: ListView.builder(
-          itemCount: menuItems.length,
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context,index)=>Container(
-              padding: EdgeInsets.all(ScreenUtil().setHeight(20)),
-              child: GestureDetector(
-                onTap: (){setState(() {
-                  menuIndex = index;
-                  menuItem = menuItems[index];
-                });},
-                child: Text(menuItems[index],
-                  style: TextStyle(
-                    color: menuIndex==index?Colors.orange:Colors.white,
-                    // backgroundColor: menuIndex==index?Colors.white:Colors.black
-                ),),
-              ))
-      ),
-    );
-  }
-
-
-
 }
 
 

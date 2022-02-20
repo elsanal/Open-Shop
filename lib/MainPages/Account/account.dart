@@ -13,12 +13,15 @@ class Account extends StatefulWidget {
 class _AccountState extends State<Account> {
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      physics: const ScrollPhysics(),
-      slivers: [
-        accountHeader(context),
-        accountBody(context),
-      ],
+    return Container(
+      color: Colors.black87,
+      child: CustomScrollView(
+        physics: const ScrollPhysics(),
+        slivers: [
+          accountHeader(context),
+          accountBody(context),
+        ],
+      ),
     );
   }
 }

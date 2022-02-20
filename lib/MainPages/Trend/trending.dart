@@ -11,9 +11,12 @@ class Trending extends StatefulWidget {
 class _TrendingState extends State<Trending> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text("Trending",
-        style: TextStyle(color: Colors.white, fontSize: 20),),
+    return Container(
+      color: Colors.black87,
+      child: const Center(
+        child: Text("Trending",
+          style: TextStyle(color: Colors.white, fontSize: 20),),
+      ),
     );
   }
 }

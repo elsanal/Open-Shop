@@ -3,32 +3,38 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:openshop/Components/MenuBar/menu_bar.dart';
 import 'package:openshop/Components/body.dart';
 
-class Cart extends StatefulWidget {
-  const Cart({Key? key}) : super(key: key);
+class Homebody extends StatefulWidget {
+  const Homebody({Key? key}) : super(key: key);
 
   @override
-  _CartState createState() => _CartState();
+  _HomebodyState createState() => _HomebodyState();
 }
 
-class _CartState extends State<Cart> {
+class _HomebodyState extends State<Homebody> {
 
+  int bottomIndex = 0;
   int menuIndex = 0;
+  String menuItem = "All";
   final menuItems = ["All","Electronics","Clothes","Shoes","Foods",
     "Electronics","Clothes","Shoes","Foods"];
+  final bottomIcons = [Icons.home,Icons.shopping_cart,
+    Icons.trending_up,Icons.chat,
+    Icons.account_circle] ;
+  final bottomLabels = ["Home","Panier","Trend","Message","Moi"];
+
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.black87,
-      child: Stack(
-        children: [
-        Positioned(child: menu()),
-        Positioned(
-          top: ScreenUtil().setHeight(90),
-            child: mainBody(context, 0, "All"))
-        ],
-      ),
-    );
+
+    return Stack(children: [
+      Positioned(
+          top: 0,
+          child: menuBar(context, menu())),
+      Positioned(
+          top: 100,
+          bottom: 2,
+          child: Center(child: Text(menuItems[menuIndex]),)),
+    ],);
   }
 
   Widget menu(){
@@ -49,6 +55,7 @@ class _CartState extends State<Cart> {
               child: GestureDetector(
                 onTap: (){setState(() {
                   menuIndex = index;
+                  menuItem = menuItems[index];
                 });},
                 child: Text(menuItems[index],
                   style: TextStyle(
