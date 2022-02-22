@@ -11,17 +11,11 @@ class Homebody extends StatefulWidget {
 }
 
 class _HomebodyState extends State<Homebody> {
-
-  int bottomIndex = 0;
+  
   int menuIndex = 0;
   String menuItem = "All";
   final menuItems = ["All","Electronics","Clothes","Shoes","Foods",
     "Electronics","Clothes","Shoes","Foods"];
-  final bottomIcons = [Icons.home,Icons.shopping_cart,
-    Icons.trending_up,Icons.chat,
-    Icons.account_circle] ;
-  final bottomLabels = ["Home","Panier","Trend","Message","Moi"];
-
 
   @override
   Widget build(BuildContext context) {

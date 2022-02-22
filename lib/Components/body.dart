@@ -15,6 +15,6 @@ Widget mainBody(BuildContext context, int index, String menuItem){
       itemCount: index+5,
       gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2),
-      itemBuilder: (context, index)=>productCardView(index),)
+      itemBuilder: (context, index)=>productCardView(context, index),)
   );
 }
