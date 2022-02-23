@@ -15,9 +15,11 @@ Widget imageSwiper(int length, double width, double height){
       itemHeight: height*(1/2),
       itemWidth: width,
       itemBuilder: (context, index)=>Card(
-        child: Image.asset(
-            'assets/img${index+1}.jpeg',
-          fit: BoxFit.cover,
+        child: Card(
+          child: Image.asset(
+              'assets/img${index+1}.jpeg',
+            fit: BoxFit.cover,
+          ),
         ),
       ),
       indicatorLayout: PageIndicatorLayout.COLOR,

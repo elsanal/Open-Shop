@@ -1,9 +1,9 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-TextStyle style =  const TextStyle(
-  fontSize: 18,
-  fontWeight: FontWeight.w600,
-  color: Colors.white
+TextStyle style =  GoogleFonts.monoton(
+  fontSize: ScreenUtil().setSp(40),
+  fontWeight: FontWeight.w500,
 );
