@@ -29,6 +29,14 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<string>NSLocationWhenInUseUsageDescription</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
+
+	<string>NSPhotoLibraryUsageDescription</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>NSCameraUsageDescription</string>
+	<key>NSCameraUsageDescription</key>
+	<string>NSMicrophoneUsageDescription</string>
+	<key>NSMicrophoneUsageDescription</key>
+
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>

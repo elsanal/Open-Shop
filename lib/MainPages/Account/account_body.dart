@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:openshop/MainPages/Account/MyShop/my_shop.dart';
 
 Widget accountBody(BuildContext context){
   final width = MediaQuery.of(context).size.width;
@@ -12,7 +13,10 @@ Widget accountBody(BuildContext context){
           crossAxisCount: 2
       ),
       children: [
-        accountItemCard(0, "My shop",width),
+        GestureDetector(
+          onTap: ()=>Navigator.push(context,
+              MaterialPageRoute(builder: (context)=>const MyShop())),
+            child: accountItemCard(0, "My shop",width)),
         accountItemCard(1, "Mon panier",width),
         accountItemCard(2, "Mes achats",width),
         accountItemCard(3, "History",width),
