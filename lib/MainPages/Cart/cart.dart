@@ -18,14 +18,22 @@ class _CartState extends State<Cart> {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Container(
       color: Colors.black87,
+      height: height,
+      width: width,
       child: Stack(
         children: [
         Positioned(child: menu()),
         Positioned(
           top: ScreenUtil().setHeight(90),
-            child: mainBody(context, 0, "All"))
+            left: 0,right: 0,bottom: 0,
+            child: SizedBox(
+                height: height-ScreenUtil().setHeight(380),
+                width: width,
+                child: Center(child: mainBody(context, 0, "All"))))
         ],
       ),
     );

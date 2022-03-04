@@ -19,7 +19,6 @@ class _HomebodyState extends State<Homebody> {
 
   @override
   Widget build(BuildContext context) {
-
     return Stack(children: [
       Positioned(
           top: 0,
@@ -27,7 +26,7 @@ class _HomebodyState extends State<Homebody> {
       Positioned(
           top: 100,
           bottom: 2,
-          child: Center(child: Text(menuItems[menuIndex]),)),
+          child: Center(child: mainBody(context, 0, menuItem),)),
     ],);
   }
 
