@@ -52,3 +52,28 @@ InputDecoration settingFormFieldDeco = InputDecoration(
       borderSide: const BorderSide(color: Colors.black87,width: 2.0)
   ),
 );
+
+InputDecoration uploadFieldDeco = const InputDecoration(
+  hintStyle: TextStyle(color: Colors.black),
+  contentPadding: EdgeInsets.only(
+    top: 0,
+    bottom: 0,
+    left: 5,
+    right: 5,
+  ),
+  fillColor: Colors.white,
+  filled: true,
+  focusColor: Colors.red,
+  enabledBorder:OutlineInputBorder(
+      borderRadius: BorderRadius.all(
+          Radius.circular(10)
+      ),
+      borderSide: BorderSide(color: Colors.orange,width: 2.0)
+  ),
+  focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(
+          Radius.circular(10)
+      ),
+      borderSide:BorderSide(color: Colors.red,width: 2.0)
+  ),
+);

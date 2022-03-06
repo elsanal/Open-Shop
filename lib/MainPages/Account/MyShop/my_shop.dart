@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:openshop/Components/MenuBar/menu_bar.dart';
 import 'package:openshop/Components/body.dart';
 import 'package:openshop/Decorations/text_deco.dart';
+import 'package:openshop/MainPages/Account/MyShop/upload_post.dart';
 
 class MyShop extends StatefulWidget {
   const MyShop({Key? key}) : super(key: key);
@@ -31,10 +32,12 @@ class _MyShopState extends State<MyShop> {
               child: Container(
                 height: height/3.5,
                 decoration: const BoxDecoration(
+                    // color: Colors.black,
                     color: Colors.black,
                   image: DecorationImage(
-                    image: AssetImage("assets/img2.jpeg"),
-                    fit: BoxFit.cover
+                    image: AssetImage("assets/img3.jpeg"),
+                    fit: BoxFit.cover,
+                    opacity: 0.8
                   )
                 ),
                 child: Container(
@@ -44,7 +47,7 @@ class _MyShopState extends State<MyShop> {
                   child: Text("La merveille",
                     textAlign: TextAlign.center,
                     style: GoogleFonts.lato(
-                      fontSize: ScreenUtil().setSp(75),
+                      fontSize: 25,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),),
@@ -61,7 +64,7 @@ class _MyShopState extends State<MyShop> {
               top: ScreenUtil().setHeight(250),
               child: Container(
                   decoration:BoxDecoration(
-                      color: Colors.brown.withOpacity(0.7),
+                      color: Colors.black54.withOpacity(0.5),
                       borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(15),
                           topRight: Radius.circular(15)
@@ -95,16 +98,16 @@ class _MyShopState extends State<MyShop> {
       // color: Colors.green,
       height: height/7,
       width: width,
-      padding: EdgeInsets.only(
-          left: ScreenUtil().setHeight(10),
-          right: ScreenUtil().setHeight(10)
+      padding: const EdgeInsets.only(
+          left: 3,
+          right: 3
       ),
       child: MasonryGridView.builder(
           itemCount: 4,
           gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 4),
           itemBuilder: (context,index)=>Container(
-              padding: EdgeInsets.all(ScreenUtil().setHeight(20)),
+              padding: const EdgeInsets.all(5),
               child: GestureDetector(
                 onTap: (){setState(() {
                   menuIndex = index;
@@ -123,17 +126,17 @@ class _MyShopState extends State<MyShop> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         CircleAvatar(
-          radius: ScreenUtil().setWidth(80),
-          backgroundColor: Colors.black,
+          radius: 30,
+          backgroundColor: menuIndex==index?Colors.green:Colors.black,
           child: Text(label,
             style: style.copyWith(
-                color: menuIndex==index?Colors.orange:Colors.white,
+                color: menuIndex==index?Colors.red:Colors.white,
                 fontSize: 13),),
         ),
         const SizedBox(height: 5,),
         Text("$length",
           style: TextStyle(
-            color: menuIndex==index?Colors.orange:Colors.white,
+            color: menuIndex==index?Colors.red:Colors.white,
             // backgroundColor: Colors.black
           ),),
       ],
@@ -145,16 +148,18 @@ class _MyShopState extends State<MyShop> {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         FloatingActionButton(
-            onPressed: (){},
+          onPressed: ()=>Navigator.push(context,
+              MaterialPageRoute(builder: (context)=>const UploadPost())),
           tooltip: "Add new post",
           heroTag: null,
           backgroundColor: Colors.black,
-          child: Icon(Icons.library_add_rounded,
-            size: ScreenUtil().setWidth(100),),
+          child: const Icon(Icons.library_add_rounded,
+            size: 40,),
         ),
         const SizedBox(height: 20,),
         FloatingActionButton(
-          onPressed: (){},
+          onPressed: ()=>Navigator.push(context,
+              MaterialPageRoute(builder: (context)=>const UploadPost())),
           tooltip: "Add short video",
           heroTag: null,
           backgroundColor: Colors.black,
